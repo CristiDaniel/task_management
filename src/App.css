@@ -190,3 +190,19 @@ header {
   margin: 0 auto 0 auto;
   height: fit-content;
 }
+
+/* Toggle active class */
+.priority_label {
+  background: #fff;
+  padding: 5px 10px;
+  border-radius: 15px;
+  transition: all 0.2s linear;
+  user-select: none;
+}
+.priority_label:hover {
+  cursor: pointer;
+}
+.priority_label.active {
+  background: #000;
+  color: #fff;
+}
