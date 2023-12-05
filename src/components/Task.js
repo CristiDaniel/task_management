@@ -20,7 +20,10 @@ function Task({ task, onDeleteTasks, onUpdateTasks }) {
   }
   // console.log(status);
   return (
-    <li className="task_item">
+    <li
+      style={{ border: `1px solid ${bgColor[task.priority]}` }}
+      className="task_item"
+    >
       <div className="top_side">
         {" "}
         <span className="svg_note">
@@ -68,7 +71,7 @@ function Task({ task, onDeleteTasks, onUpdateTasks }) {
           {task.hasNote ? (
             <p>{task.note}</p>
           ) : (
-            <p style={{ color: "#828282" }}>Empty</p>
+            <p style={{ color: "#828282" }}>You didn`t write any notes.</p>
           )}
         </div>
       </div>

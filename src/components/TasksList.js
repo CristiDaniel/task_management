@@ -83,13 +83,21 @@ function TasksList({ tasks, onDeleteTasks, onUpdateTasks }) {
   }
   return (
     <>
-      <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
+      <select
+        className="filter_and_sort"
+        value={sortBy}
+        onChange={(e) => setSortBy(e.target.value)}
+      >
         <option value="input">Sort by input order</option>
         <option value="title">Sort by title</option>
         <option value="note">Sort by notes</option>
         <option value="status">Sort by status</option>
       </select>
-      <select value={filterBy} onChange={(e) => setFilterBy(e.target.value)}>
+      <select
+        className="filter_and_sort"
+        value={filterBy}
+        onChange={(e) => setFilterBy(e.target.value)}
+      >
         <option value="all">Show all ({tasks.length})</option>
         <option value="Completed">Show completed tasks ({nrCompleted})</option>
         <option value="Overdue">Show overdue tasks ({nrOverdue})</option>

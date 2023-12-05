@@ -45,35 +45,42 @@ function Form({ onSetTasks, onSubmit }) {
   return (
     <form className="add_task_form" onSubmit={handleSubmit}>
       <div className="container_inputs">
-        <select value={priority} onChange={(e) => setPriority(e.target.value)}>
-          {Object.keys(priorityLevels).map((priorityKey) => (
-            <option
-              onChange={(e) => setPriority(e.target.value)}
-              key={priorityKey}
-              value={priorityKey}
-            >
-              {priorityLevels[priorityKey].value}
-            </option>
-          ))}
-        </select>
-        <input
-          className="add_task_input"
-          placeholder="Titlu activitate"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-        {/* <input
-          type="date"
-          value={dueDate}
-          onChange={(e) => setDueDate(e.target.value)}
-        /> */}
+        <div className="input_container">
+          <label>Task name:</label>
+          <input
+            className="add_task_input"
+            placeholder="Task Title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+        </div>
+        <div className="input_container">
+          <label>Priority:</label>
+          <select
+            value={priority}
+            onChange={(e) => setPriority(e.target.value)}
+          >
+            {Object.keys(priorityLevels).map((priorityKey) => (
+              <option
+                onChange={(e) => setPriority(e.target.value)}
+                key={priorityKey}
+                value={priorityKey}
+              >
+                {priorityLevels[priorityKey].value}
+              </option>
+            ))}
+          </select>
+        </div>
 
         {hasNote && (
-          <textarea
-            value={note}
-            placeholder="Add a note"
-            onChange={(e) => setNote(e.target.value)}
-          />
+          <div className="input_container">
+            <label>Add a note:</label>
+            <textarea
+              value={note}
+              placeholder="Add a note"
+              onChange={(e) => setNote(e.target.value)}
+            />
+          </div>
         )}
       </div>
       <div className="btns_container">
@@ -81,7 +88,9 @@ function Form({ onSetTasks, onSubmit }) {
         <button onClick={handleAddNote}>
           {hasNote ? "Close" : "Add note"}
         </button>
-        <button type="submit">Add task</button>
+        <button className="btn_modal_add_task" type="submit">
+          Add task
+        </button>
       </div>
     </form>
   );
