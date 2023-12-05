@@ -28,6 +28,8 @@ function App() {
   const countMediumTasks = mediumTasks.length;
   const countHighTasks = highTasks.length;
 
+  console.log(tasks);
+
   useEffect(() => {
     const updateFilteredTasks = () => {
       switch (selectedPriority) {
@@ -51,6 +53,12 @@ function App() {
   // CRUD operations
   function handleSetTasks(task) {
     setTasks((tasks) => [...tasks, task]);
+  }
+
+  function handleUpdateTasks(id, status) {
+    setTasks(
+      tasks.map((task) => (task.id === id ? { ...task, status } : task))
+    );
   }
 
   function handleDeleteTasks(id) {
@@ -112,6 +120,7 @@ function App() {
             <TasksList
               tasks={filteredTasks}
               onDeleteTasks={handleDeleteTasks}
+              onUpdateTasks={handleUpdateTasks}
             />
           )}
         </div>

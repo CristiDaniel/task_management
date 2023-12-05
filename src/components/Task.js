@@ -1,3 +1,4 @@
+import { useState } from "react";
 import CloseSvg from "./CloseSvg";
 
 const bgColor = {
@@ -12,6 +13,12 @@ const color = {
 };
 
 function Task({ task, onDeleteTasks, onUpdateTasks }) {
+  const [status, setStatus] = useState(task.status);
+  function handleUpdateStatus(e) {
+    setStatus(e.target.value);
+    onUpdateTasks(task.id, e.target.value);
+  }
+  // console.log(status);
   return (
     <li className="task_item">
       <div className="top_side">
@@ -40,12 +47,16 @@ function Task({ task, onDeleteTasks, onUpdateTasks }) {
             >
               {task.priority}
             </span>
-            <select className="task_status" value={task.status}>
+            <select
+              className="task_status"
+              value={status}
+              onChange={handleUpdateStatus}
+            >
               <option value="Overdue ">Overdue </option>
               <option value="Upcoming">Upcoming</option>
               <option value="Completed">Completed</option>
               <option value="Cancelled">Cancelled</option>
-              {task.status}
+              {status}
             </select>
             {/* <span className="task_date">{task.dueDate}</span> */}
           </span>
