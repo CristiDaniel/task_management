@@ -5,11 +5,20 @@ const priorityLevels = {
   medium: { value: "Medium", color: "yellow" },
   high: { value: "High", color: "red" },
 };
+const date = new Date();
+
+let day = date.getDate();
+let month = date.getMonth() + 1;
+let year = date.getFullYear();
+
+let currentDate = `${year}-${month < 10 ? "0" : ""}${month}-${
+  day < 10 ? "0" : ""
+}${day}`;
 
 function Form({ onSetTasks, onSubmit }) {
   const [title, setTitle] = useState("");
   const [note, setNote] = useState("");
-  const [dueDate, setDueDate] = useState("");
+  const [dueDate, setDueDate] = useState(currentDate);
   const [priority, setPriority] = useState("low");
   const [hasNote, setHasNote] = useState(false);
 
