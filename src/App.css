@@ -79,11 +79,11 @@ header {
 
 /* Form css */
 .add_task_form {
-  min-height: 300px;
   background: transparent;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  min-height: 400px;
 }
 .MuiBox-root.css-1wnsr1i {
   background: #fff3;

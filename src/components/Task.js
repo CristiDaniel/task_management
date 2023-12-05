@@ -50,6 +50,15 @@ function Task({ task, onDeleteTasks, onUpdateTasks }) {
             >
               {task.priority}
             </span>
+            <span
+              className="badge_priority"
+              style={{
+                backgroundColor: bgColor[task.priority],
+                color: color[task.priority],
+              }}
+            >
+              {task.dueDate}
+            </span>
             <select
               className="task_status"
               value={status}

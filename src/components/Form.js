@@ -9,7 +9,7 @@ const priorityLevels = {
 function Form({ onSetTasks, onSubmit }) {
   const [title, setTitle] = useState("");
   const [note, setNote] = useState("");
-  //   const [dueDate, setDueDate] = useState("");
+  const [dueDate, setDueDate] = useState("");
   const [priority, setPriority] = useState("low");
   const [hasNote, setHasNote] = useState(false);
 
@@ -25,7 +25,7 @@ function Form({ onSetTasks, onSubmit }) {
       id: Date.now(),
       title,
       note,
-      //   dueDate,
+      dueDate,
       hasNote,
       priority,
       status: "Upcoming",
@@ -39,7 +39,7 @@ function Form({ onSetTasks, onSubmit }) {
     setPriority("low");
     setHasNote(false);
     onSubmit();
-    // setDueDate("");
+    setDueDate("");
   }
 
   return (
@@ -70,6 +70,17 @@ function Form({ onSetTasks, onSubmit }) {
               </option>
             ))}
           </select>
+        </div>
+
+        <div className="input_container">
+          <label>Due Date:</label>
+          <input
+            type="date"
+            className="add_task_input"
+            placeholder="Task Title"
+            value={dueDate}
+            onChange={(e) => setDueDate(e.target.value)}
+          />
         </div>
 
         {hasNote && (
