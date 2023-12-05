@@ -28,8 +28,6 @@ function App() {
   const countMediumTasks = mediumTasks.length;
   const countHighTasks = highTasks.length;
 
-  console.log(tasks);
-
   useEffect(() => {
     const updateFilteredTasks = () => {
       switch (selectedPriority) {
