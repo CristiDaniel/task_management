@@ -64,7 +64,7 @@ function Task({ task, onDeleteTasks, onUpdateTasks }) {
               value={status}
               onChange={handleUpdateStatus}
             >
-              <option value="Overdue ">Overdue </option>
+              <option value="Overdue">Overdue </option>
               <option value="Upcoming">Upcoming</option>
               <option value="Completed">Completed</option>
               <option value="Cancelled">Cancelled</option>
